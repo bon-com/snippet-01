@@ -1,0 +1,19 @@
+<!-- モーダルエリア -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">スニペットの削除：</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>タイトル：「<span id="delete-title"></span>」を削除しますか？</p>
+        <input type="hidden" id="delete-id" value=""/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete" class="btn btn-primary">はい</button>
+        <button type="button" class="btn btn-secondary modal-close"  data-bs-dismiss="modal">いいえ</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<!-- ページネーション領域 -->
+{% if page_obj.has_other_pages %}
+<ul class="list-unstyled m-0 d-flex">
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <li class="active">&nbsp;{{ num }}&nbsp;</li>
+    {% else %}
+    <li><a href="?page={{ num }}">&nbsp;{{ num }}&nbsp;</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}

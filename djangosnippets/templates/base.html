@@ -1,0 +1,45 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Djangoスニペット</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link rel="stylesheet" href="{% static 'snippets/css/style.css' %}">
+  {% block extraheader %}{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+    <div class="container">
+      <a href="/" class="navbar-brand">Djangoスニペット</a>
+      <div class="navbar-nav ml-auto">
+        {% if request.user.is_authenticated %}
+        <span class="navbar-text">こんにちは、{{ request.user }}さん</span>
+        <a class="nav-link mx-3" href="{% url 'logout' %}">ログアウト</a>
+        {% else %}
+        <a class="nav-link mx-3" href="{% url 'login' %}">ログイン</a>
+        <a class="nav-link mx-3" href="{% url 'signup' %}">会員登録</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+        {% block main %}{% endblock %}
+    </div>
+  </main>
+  <!-- ドメイン情報 -->
+  <input type="hidden" id="domain-info" value="{{ request.META.HTTP_HOST }}"/>
+
+  {% for message in messages %}
+  <div {% if message.tags %} class="{{message.tags}}"{%endif%}>
+    {{message}}
+  </div>
+  {% endfor %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'snippets/js/consts.js' %}" charset="utf-8"></script>
+  {% block endbody %}{% endblock %}
+</body>
+</html>

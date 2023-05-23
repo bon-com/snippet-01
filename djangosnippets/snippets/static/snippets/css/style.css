@@ -1,0 +1,36 @@
+main {
+    padding: 2rem 0;
+}
+
+.welcome {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    background-color: #eee;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.snippet-date {
+    margin-bottom: 1rem
+}
+
+.comment-area {
+    padding: 2rem;
+}
+
+.source-code {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+td {
+    background: #f8f8f8;
+}
+
+/* ボタンを真ん中寄せ */
+.btn-area-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
